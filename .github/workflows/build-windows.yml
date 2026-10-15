@@ -21,14 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
-        working-directory: nn
 
       - name: Build Windows release
         run: flutter build windows --release
-        working-directory: nn
 
       - name: Upload Windows Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ghostgaming-windows-release
-          path: nn/build/windows/x64/runner/release/
+          path: build/windows/x64/runner/release/
