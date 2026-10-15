@@ -21,15 +21,18 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+        working-directory: nn
 
       - name: Run Codegen
         run: dart run build_runner build --delete-conflicting-outputs
+        working-directory: nn
 
       - name: Build Windows release
         run: flutter build windows --release
+        working-directory: nn
 
       - name: Upload Windows Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ghostgaming-windows-release
-          path: build/windows/x64/runner/release/
+          path: nn/build/windows/x64/runner/release/
